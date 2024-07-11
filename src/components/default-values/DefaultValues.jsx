@@ -8,7 +8,9 @@ const DefaultValues = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(defaultCounter(+localStorage.getItem("counter")));
-    dispatch(defaultWishlist(JSON.parse(localStorage.getItem("wishlist"))));
+    dispatch(
+      defaultWishlist(JSON.parse(localStorage.getItem("wishlist")) || [])
+    );
   }, []);
   return null;
 };
